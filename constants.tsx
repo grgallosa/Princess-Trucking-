@@ -2,7 +2,7 @@
 import { Truck, TruckType, Testimonial, Service } from './types';
 
 // BRANDING
-export const LOGO_URL = 'public/princess-trucking.png'; 
+export const LOGO_URL = '/princess-trucking.png'; 
 export const LOGO_TEXT = '';
 
 // UI IMAGES - Replace these URLs with your local paths like '/images/hero.jpg'
