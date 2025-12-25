@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { LOGO_URL, LOGO_TEXT } from '../constants';
 
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -46,12 +47,15 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       {/* Navigation */}
       <header className={`sticky top-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white shadow-lg py-2' : 'bg-white/95 py-4'}`}>
         <nav className="max-w-7xl mx-auto px-4 md:px-6 flex justify-between items-center">
-          <Link to="/" className="flex items-center space-x-2">
-            <div className="bg-primary text-white p-2 rounded-lg">
-              <i className="fa-solid fa-truck-moving text-xl"></i>
-            </div>
-            <div>
-              <span className="text-xl font-extrabold text-secondary leading-none block">PRINCESS</span>
+          <Link to="/" className="flex items-center space-x-3">
+            <img 
+              src={LOGO_URL} 
+              alt={`${LOGO_TEXT} Logo`} 
+              className="h-10 w-auto object-contain"
+              style={{ filter: scrolled ? 'none' : 'none' }} // Add filter if logo needs color shift
+            />
+            <div className="hidden sm:block">
+              <span className="text-xl font-extrabold text-secondary leading-none block">{LOGO_TEXT}</span>
               <span className="text-[10px] uppercase tracking-widest font-bold text-primary">Trucking Services</span>
             </div>
           </Link>
@@ -105,11 +109,13 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       <footer className="bg-dark text-gray-300">
         <div className="max-w-7xl mx-auto px-4 py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           <div>
-            <div className="flex items-center space-x-2 mb-6">
-              <div className="bg-primary text-white p-2 rounded-lg">
-                <i className="fa-solid fa-truck-moving text-lg"></i>
-              </div>
-              <span className="text-2xl font-extrabold text-white">PRINCESS</span>
+            <div className="flex items-center space-x-3 mb-6">
+              <img 
+                src={LOGO_URL} 
+                alt={`${LOGO_TEXT} White Logo`} 
+                className="h-12 w-auto object-contain brightness-0 invert" 
+              />
+              <span className="text-2xl font-extrabold text-white">{LOGO_TEXT}</span>
             </div>
             <p className="text-sm leading-relaxed mb-6">
               Your trusted partner in logistics since 2005. Serving Panay Island and the entire Philippines with excellence, safety, and modern trucking solutions.

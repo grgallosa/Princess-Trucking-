@@ -1,6 +1,10 @@
 
 import { Truck, TruckType, Testimonial, Service } from './types';
 
+// Replace these URLs with your actual logo file paths (e.g., '/assets/logo.png')
+export const LOGO_URL = 'https://raw.githubusercontent.com/lucide-icons/lucide/main/icons/truck.svg'; 
+export const LOGO_TEXT = 'PRINCESS';
+
 export const FLEET_DATA: Truck[] = [
   {
     id: 'wv-12',
