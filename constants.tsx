@@ -2,6 +2,9 @@
 import { Truck, TruckType, Testimonial, Service } from './types';
 
 // BRANDING
+// 1. Set LOGO_URL to your image path (Note: omit 'public/' if the file is in the public folder)
+// 2. Set LOGO_TEXT to your company name. 
+// TIP: If your logo image already contains the word "Princess", set LOGO_TEXT to '' (empty string).
 export const LOGO_URL = '/princess-trucking.png'; 
 export const LOGO_TEXT = '';
 

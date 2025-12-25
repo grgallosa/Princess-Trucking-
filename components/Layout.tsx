@@ -31,11 +31,11 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
     <div className="min-h-screen flex flex-col font-sans">
       {/* Top Bar */}
-      <div className="bg-secondary text-white text-xs py-2 px-4 hidden md:block">
+      <div className="bg-secondary text-white text-xs py-2 px-4 hidden md:block border-b border-white/10">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
-          <div className="flex space-x-4">
-            <span><i className="fa-solid fa-phone mr-2 text-primary"></i> +63 (33) 333-1234</span>
-            <span><i className="fa-solid fa-envelope mr-2 text-primary"></i> info@princesstrucking.com</span>
+          <div className="flex space-x-6">
+            <span className="flex items-center"><i className="fa-solid fa-phone mr-2 text-primary"></i> +63 (33) 333-1234</span>
+            <span className="flex items-center"><i className="fa-solid fa-envelope mr-2 text-primary"></i> info@princesstrucking.com</span>
           </div>
           <div className="flex space-x-4">
             <a href="#" className="hover:text-primary transition-colors"><i className="fa-brands fa-facebook"></i></a>
@@ -47,17 +47,19 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       {/* Navigation */}
       <header className={`sticky top-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white shadow-lg py-2' : 'bg-white/95 py-4'}`}>
         <nav className="max-w-7xl mx-auto px-4 md:px-6 flex justify-between items-center">
-          <Link to="/" className="flex items-center space-x-3">
+          <Link to="/" className="flex items-center space-x-3 group">
             <img 
               src={LOGO_URL} 
-              alt={`${LOGO_TEXT} Logo`} 
-              className="h-10 w-auto object-contain"
-              style={{ filter: scrolled ? 'none' : 'none' }} // Add filter if logo needs color shift
+              alt={LOGO_TEXT || "Princess Trucking"} 
+              className={`transition-all duration-300 ${scrolled ? 'h-8' : 'h-10'} w-auto object-contain`}
             />
-            <div className="hidden sm:block">
-              <span className="text-xl font-extrabold text-secondary leading-none block">{LOGO_TEXT}</span>
-              <span className="text-[10px] uppercase tracking-widest font-bold text-primary">Trucking Services</span>
-            </div>
+            {LOGO_TEXT && (
+              <div className="hidden sm:block">
+                <span className="text-xl font-extrabold text-secondary leading-none block group-hover:text-primary transition-colors uppercase tracking-tight">
+                  {LOGO_TEXT}
+                </span>
+              </div>
+            )}
           </Link>
 
           {/* Desktop Nav */}
@@ -66,35 +68,35 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
               <Link 
                 key={link.path} 
                 to={link.path}
-                className={`text-sm font-semibold hover:text-primary transition-colors ${location.pathname === link.path ? 'text-primary' : 'text-gray-700'}`}
+                className={`text-xs uppercase tracking-widest font-black transition-all hover:text-primary ${location.pathname === link.path ? 'text-primary' : 'text-gray-700'}`}
               >
                 {link.name}
               </Link>
             ))}
-            <Link to="/quote" className="bg-primary text-white px-6 py-2.5 rounded-xl text-sm font-bold hover:bg-red-700 transition-all shadow-md">
-              Request Quote
+            <Link to="/quote" className="bg-primary text-white px-7 py-3 rounded-xl text-xs font-black uppercase tracking-widest hover:bg-red-700 transition-all shadow-md active:scale-95">
+              Get Quote
             </Link>
           </div>
 
           {/* Mobile Toggle */}
-          <button className="lg:hidden text-secondary text-2xl" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+          <button className="lg:hidden text-secondary text-2xl p-2" onClick={() => setIsMenuOpen(!isMenuOpen)}>
             <i className={`fa-solid ${isMenuOpen ? 'fa-xmark' : 'fa-bars'}`}></i>
           </button>
         </nav>
 
         {/* Mobile Nav */}
         {isMenuOpen && (
-          <div className="lg:hidden absolute top-full left-0 w-full bg-white border-t shadow-xl p-4 flex flex-col space-y-4 animate-fadeIn">
+          <div className="lg:hidden absolute top-full left-0 w-full bg-white border-t shadow-2xl p-6 flex flex-col space-y-4 animate-fadeInDown">
             {navLinks.map((link) => (
               <Link 
                 key={link.path} 
                 to={link.path}
-                className="text-lg font-medium text-gray-800 border-b pb-2"
+                className={`text-sm font-black uppercase tracking-widest border-b border-gray-50 pb-3 ${location.pathname === link.path ? 'text-primary' : 'text-secondary'}`}
               >
                 {link.name}
               </Link>
             ))}
-            <Link to="/quote" className="bg-primary text-white p-4 rounded-xl text-center font-bold">
+            <Link to="/quote" className="bg-primary text-white p-4 rounded-xl text-center font-black uppercase tracking-widest text-sm">
               Request Quote
             </Link>
           </div>
@@ -106,65 +108,68 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       </main>
 
       {/* Footer */}
-      <footer className="bg-dark text-gray-300">
-        <div className="max-w-7xl mx-auto px-4 py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+      <footer className="bg-dark text-gray-400">
+        <div className="max-w-7xl mx-auto px-4 py-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16">
           <div>
-            <div className="flex items-center space-x-3 mb-6">
+            <div className="flex items-center space-x-3 mb-8">
               <img 
                 src={LOGO_URL} 
-                alt={`${LOGO_TEXT} White Logo`} 
-                className="h-12 w-auto object-contain brightness-0 invert" 
+                alt={LOGO_TEXT || "Princess Trucking"} 
+                className="h-10 w-auto object-contain brightness-0 invert" 
               />
-              <span className="text-2xl font-extrabold text-white">{LOGO_TEXT}</span>
+              {LOGO_TEXT && <span className="text-2xl font-black text-white uppercase tracking-tight">{LOGO_TEXT}</span>}
             </div>
-            <p className="text-sm leading-relaxed mb-6">
+            <p className="text-sm leading-relaxed mb-8 font-medium">
               Your trusted partner in logistics since 2005. Serving Panay Island and the entire Philippines with excellence, safety, and modern trucking solutions.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="w-10 h-10 bg-gray-700 rounded-lg flex items-center justify-center hover:bg-primary transition-colors"><i className="fa-brands fa-facebook-f"></i></a>
-              <a href="#" className="w-10 h-10 bg-gray-700 rounded-lg flex items-center justify-center hover:bg-primary transition-colors"><i className="fa-brands fa-twitter"></i></a>
-              <a href="#" className="w-10 h-10 bg-gray-700 rounded-lg flex items-center justify-center hover:bg-primary transition-colors"><i className="fa-brands fa-linkedin-in"></i></a>
+              <a href="#" className="w-10 h-10 bg-white/5 rounded-xl flex items-center justify-center hover:bg-primary hover:text-white transition-all"><i className="fa-brands fa-facebook-f"></i></a>
+              <a href="#" className="w-10 h-10 bg-white/5 rounded-xl flex items-center justify-center hover:bg-primary hover:text-white transition-all"><i className="fa-brands fa-twitter"></i></a>
+              <a href="#" className="w-10 h-10 bg-white/5 rounded-xl flex items-center justify-center hover:bg-primary hover:text-white transition-all"><i className="fa-brands fa-linkedin-in"></i></a>
             </div>
           </div>
 
           <div>
-            <h4 className="text-white font-bold mb-6 border-l-4 border-primary pl-4 uppercase tracking-wider text-sm">Quick Links</h4>
-            <ul className="space-y-3 text-sm">
+            <h4 className="text-white font-black mb-8 border-l-4 border-primary pl-4 uppercase tracking-[0.2em] text-[10px]">Operations</h4>
+            <ul className="space-y-4 text-xs font-bold uppercase tracking-widest">
               <li><Link to="/fleet" className="hover:text-primary transition-colors">Fleet Inventory</Link></li>
-              <li><Link to="/services" className="hover:text-primary transition-colors">Our Services</Link></li>
-              <li><Link to="/about" className="hover:text-primary transition-colors">About Company</Link></li>
-              <li><Link to="/quote" className="hover:text-primary transition-colors">Request Quote</Link></li>
+              <li><Link to="/services" className="hover:text-primary transition-colors">Logistics Services</Link></li>
+              <li><Link to="/about" className="hover:text-primary transition-colors">Company Profile</Link></li>
+              <li><Link to="/resources" className="hover:text-primary transition-colors">Resources</Link></li>
             </ul>
           </div>
 
           <div>
-            <h4 className="text-white font-bold mb-6 border-l-4 border-primary pl-4 uppercase tracking-wider text-sm">Headquarters</h4>
-            <p className="text-sm mb-4">
-              Iloilo Business Park, Mandurriao<br />
-              Iloilo City, 5000 Philippines
+            <h4 className="text-white font-black mb-8 border-l-4 border-primary pl-4 uppercase tracking-[0.2em] text-[10px]">Iloilo Hub</h4>
+            <p className="text-sm mb-6 leading-relaxed">
+              Units 14-16, Iloilo Business Park<br />
+              Mandurriao, Iloilo City<br />
+              5000 Philippines
             </p>
-            <div className="space-y-2 text-sm">
-              <p><i className="fa-solid fa-phone text-primary mr-2"></i> +63 (33) 333-1234</p>
-              <p><i className="fa-solid fa-mobile-screen text-primary mr-2"></i> +63 917 123 4567</p>
-              <p><i className="fa-solid fa-envelope text-primary mr-2"></i> dispatch@princesstrucking.com</p>
+            <div className="space-y-3 text-xs font-bold">
+              <p className="flex items-center"><i className="fa-solid fa-phone text-primary mr-3 text-sm"></i> +63 (33) 333-1234</p>
+              <p className="flex items-center"><i className="fa-solid fa-mobile-screen text-primary mr-3 text-sm"></i> +63 917 123 4567</p>
+              <p className="flex items-center"><i className="fa-solid fa-envelope text-primary mr-3 text-sm"></i> dispatch@princesstrucking.com</p>
             </div>
           </div>
 
           <div>
-            <h4 className="text-white font-bold mb-6 border-l-4 border-primary pl-4 uppercase tracking-wider text-sm">Newsletter</h4>
-            <p className="text-sm mb-4">Get the latest logistics insights and fleet updates.</p>
-            <form className="space-y-2">
+            <h4 className="text-white font-black mb-8 border-l-4 border-primary pl-4 uppercase tracking-[0.2em] text-[10px]">Newsletter</h4>
+            <p className="text-sm mb-6 font-medium leading-relaxed">Get the latest fleet updates and logistics insights delivered monthly.</p>
+            <form className="space-y-3">
               <input 
                 type="email" 
-                placeholder="Your email address" 
-                className="w-full bg-gray-700 border-none rounded-lg px-4 py-2.5 text-sm focus:ring-2 focus:ring-primary outline-none" 
+                placeholder="Email address" 
+                className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-3.5 text-xs font-bold text-white focus:ring-1 focus:ring-primary outline-none transition-all" 
               />
-              <button className="w-full bg-primary text-white font-bold py-2.5 rounded-lg hover:bg-red-700 transition-all">Subscribe</button>
+              <button className="w-full bg-primary text-white font-black py-4 rounded-xl hover:bg-red-700 transition-all text-[10px] uppercase tracking-widest">Subscribe</button>
             </form>
           </div>
         </div>
-        <div className="border-t border-gray-700 py-8 px-4 text-center text-xs text-gray-500">
-          <p>© {new Date().getFullYear()} Princess Trucking Services. All Rights Reserved.</p>
+        <div className="border-t border-white/5 py-10 px-4 text-center">
+          <p className="text-[10px] font-black uppercase tracking-[0.3em] text-gray-600">
+            © {new Date().getFullYear()} Princess Trucking Services. Excellence in Motion.
+          </p>
         </div>
       </footer>
     </div>
