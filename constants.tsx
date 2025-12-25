@@ -2,8 +2,8 @@
 import { Truck, TruckType, Testimonial, Service } from './types';
 
 // BRANDING
-export const LOGO_URL = 'https://raw.githubusercontent.com/lucide-icons/lucide/main/icons/truck.svg'; 
-export const LOGO_TEXT = 'PRINCESS';
+export const LOGO_URL = 'public/princess-trucking.png'; 
+export const LOGO_TEXT = '';
 
 // UI IMAGES - Replace these URLs with your local paths like '/images/hero.jpg'
 export const IMAGES = {
