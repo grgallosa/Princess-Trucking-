@@ -1,9 +1,24 @@
 
 import { Truck, TruckType, Testimonial, Service } from './types';
 
-// Replace these URLs with your actual logo file paths (e.g., '/assets/logo.png')
+// BRANDING
 export const LOGO_URL = 'https://raw.githubusercontent.com/lucide-icons/lucide/main/icons/truck.svg'; 
 export const LOGO_TEXT = 'PRINCESS';
+
+// UI IMAGES - Replace these URLs with your local paths like '/images/hero.jpg'
+export const IMAGES = {
+  HERO_BG: 'https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&q=80&w=2000',
+  ABOUT_SECTION: 'https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&q=80&w=1000',
+  LOGISTICS_SERVICE: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=1000',
+  FLEET_SERVICE: 'https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&q=80&w=1000',
+  MAINTENANCE_SERVICE: 'https://images.unsplash.com/photo-1530124560671-6789e9232ed6?auto=format&fit=crop&q=80&w=1000',
+  CONTACT_MAP_FALLBACK: 'https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&q=80&w=2000',
+  RESOURCES_ARTICLES: [
+    'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=600',
+    'https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&q=80&w=600',
+    'https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&q=80&w=600'
+  ]
+};
 
 export const FLEET_DATA: Truck[] = [
   {

@@ -1,7 +1,7 @@
 
 import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { SERVICES } from '../constants';
+import { IMAGES } from '../constants';
 
 const ServicesPage: React.FC = () => {
   const { hash } = useLocation();
@@ -35,18 +35,10 @@ const ServicesPage: React.FC = () => {
             <p className="text-gray-600 mb-6 text-lg">
               Our logistics division handles the movement of goods across the entire archipelago. Whether it's high-volume dry goods or heavy industrial machinery, we have the fleet to handle it.
             </p>
-            <ul className="space-y-4 mb-8">
-              {['Nationwide Full Truckload (FTL)', 'Specialized Heavy Haulage', 'Last-mile Distribution', 'Cross-docking Services'].map((item, i) => (
-                <li key={i} className="flex items-center space-x-3 text-gray-700 font-medium">
-                  <i className="fa-solid fa-circle-check text-primary"></i>
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
           </div>
           <div className="order-1 lg:order-2">
             <img 
-              src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=1000" 
+              src={IMAGES.LOGISTICS_SERVICE} 
               className="rounded-3xl shadow-2xl"
               alt="Logistics"
             />
@@ -57,7 +49,7 @@ const ServicesPage: React.FC = () => {
         <section id="fleet" className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div>
             <img 
-              src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&q=80&w=1000" 
+              src={IMAGES.FLEET_SERVICE} 
               className="rounded-3xl shadow-2xl"
               alt="Fleet Dealership"
             />
@@ -70,16 +62,6 @@ const ServicesPage: React.FC = () => {
             <p className="text-gray-600 mb-6 text-lg">
               We empower businesses by providing access to world-class heavy equipment. Choose from outright purchase options, flexible rentals, or long-term leasing.
             </p>
-            <div className="grid grid-cols-2 gap-4">
-              <div className="p-4 bg-gray-50 rounded-xl border border-gray-100">
-                <h4 className="font-bold text-secondary mb-1 italic">Sales</h4>
-                <p className="text-xs text-gray-500">Authorized dealer for leading brands.</p>
-              </div>
-              <div className="p-4 bg-gray-50 rounded-xl border border-gray-100">
-                <h4 className="font-bold text-secondary mb-1 italic">Rentals</h4>
-                <p className="text-xs text-gray-500">Hourly, daily, and monthly schemes.</p>
-              </div>
-            </div>
           </div>
         </section>
 
@@ -93,13 +75,10 @@ const ServicesPage: React.FC = () => {
             <p className="text-gray-600 mb-6 text-lg">
               Keep your assets running at peak performance. Our service centers are equipped with the latest diagnostic tools and staffed by certified heavy equipment technicians.
             </p>
-            <p className="text-gray-600 italic border-l-4 border-primary pl-4 py-2">
-              "We maintain what we sell, ensuring a lifetime of productivity for your investments."
-            </p>
           </div>
           <div className="order-1 lg:order-2">
             <img 
-              src="https://images.unsplash.com/photo-1530124560671-6789e9232ed6?auto=format&fit=crop&q=80&w=1000" 
+              src={IMAGES.MAINTENANCE_SERVICE} 
               className="rounded-3xl shadow-2xl"
               alt="Maintenance"
             />

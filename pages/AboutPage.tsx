@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { IMAGES } from '../constants';
 
 const AboutPage: React.FC = () => {
   return (
@@ -38,30 +38,10 @@ const AboutPage: React.FC = () => {
           <div className="relative">
             <div className="absolute -inset-4 bg-primary/10 rounded-3xl -rotate-2"></div>
             <img 
-              src="https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&q=80&w=1000" 
+              src={IMAGES.ABOUT_SECTION} 
               className="relative z-10 rounded-2xl shadow-2xl"
               alt="About Us"
             />
-          </div>
-        </div>
-      </section>
-
-      {/* Values */}
-      <section className="py-24 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 text-center">
-          <h2 className="text-4xl font-black text-secondary mb-16">The Princess Standards</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-            {[
-              { title: 'Safety First', icon: 'fa-shield-halved', text: 'Rigorous maintenance schedules and expert driver training ensure every haul is a safe one.' },
-              { title: 'Operational Speed', icon: 'fa-bolt', text: '24/7 dispatch and real-time tracking minimize downtime and maximize productivity.' },
-              { title: 'Partner Success', icon: 'fa-handshake', text: 'We view ourselves as an extension of your business, succeeding only when you do.' }
-            ].map((v, i) => (
-              <div key={i} className="bg-white p-10 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
-                <i className={`fa-solid ${v.icon} text-4xl text-primary mb-6`}></i>
-                <h3 className="text-xl font-bold text-secondary mb-4">{v.title}</h3>
-                <p className="text-gray-600 text-sm leading-relaxed">{v.text}</p>
-              </div>
-            ))}
           </div>
         </div>
       </section>

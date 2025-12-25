@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FLEET_DATA, SERVICES, TESTIMONIALS } from '../constants';
+import { FLEET_DATA, SERVICES, TESTIMONIALS, IMAGES } from '../constants';
 import AIRecommendation from '../components/AIRecommendation';
 
 const HomePage: React.FC = () => {
@@ -11,7 +11,7 @@ const HomePage: React.FC = () => {
       <section className="relative h-[85vh] flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
-            src="https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&q=80&w=2000" 
+            src={IMAGES.HERO_BG} 
             className="w-full h-full object-cover brightness-[0.4]"
             alt="Princess Trucking Hero"
           />
@@ -39,28 +39,6 @@ const HomePage: React.FC = () => {
               </Link>
             </div>
           </div>
-        </div>
-
-        {/* Floating Stats */}
-        <div className="absolute bottom-0 right-0 left-0 bg-white/10 backdrop-blur-md border-t border-white/20 hidden lg:block">
-           <div className="max-w-7xl mx-auto px-6 py-6 grid grid-cols-4 gap-8 text-white">
-              <div className="flex items-center space-x-4 border-r border-white/20">
-                <span className="text-3xl font-black">150+</span>
-                <span className="text-xs uppercase tracking-widest font-bold">Active<br/>Fleet</span>
-              </div>
-              <div className="flex items-center space-x-4 border-r border-white/20">
-                <span className="text-3xl font-black">99.9%</span>
-                <span className="text-xs uppercase tracking-widest font-bold">Success<br/>Rate</span>
-              </div>
-              <div className="flex items-center space-x-4 border-r border-white/20">
-                <span className="text-3xl font-black">20M+</span>
-                <span className="text-xs uppercase tracking-widest font-bold">Miles<br/>Covered</span>
-              </div>
-              <div className="flex items-center space-x-4">
-                <span className="text-3xl font-black">24/7</span>
-                <span className="text-xs uppercase tracking-widest font-bold">Expert<br/>Support</span>
-              </div>
-           </div>
         </div>
       </section>
 
@@ -140,50 +118,6 @@ const HomePage: React.FC = () => {
                 </div>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 text-center">
-          <h2 className="text-4xl md:text-5xl font-black text-secondary mb-16">Trusted by Industry Leaders</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-            {TESTIMONIALS.map((t) => (
-              <div key={t.id} className="bg-gray-50 p-10 rounded-2xl text-left relative border border-gray-100">
-                <div className="flex items-center space-x-1 text-primary mb-6">
-                  {[...Array(t.rating)].map((_, i) => <i key={i} className="fa-solid fa-star text-sm"></i>)}
-                </div>
-                <p className="text-gray-700 text-lg italic mb-8 leading-relaxed">"{t.content}"</p>
-                <div className="flex items-center space-x-4">
-                  <img src={t.avatar} className="w-14 h-14 rounded-full border-2 border-white shadow-md" alt={t.name} />
-                  <div>
-                    <h5 className="font-bold text-secondary">{t.name}</h5>
-                    <p className="text-primary text-xs font-bold uppercase tracking-widest">{t.company}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Final CTA */}
-      <section className="py-24 bg-white">
-        <div className="max-w-5xl mx-auto text-center px-4">
-          <div className="bg-primary p-12 md:p-16 rounded-3xl text-white shadow-xl relative overflow-hidden">
-            <div className="relative z-10">
-              <h2 className="text-4xl md:text-5xl font-black mb-8">Ready to Scale Your Operations?</h2>
-              <p className="text-lg mb-10 opacity-90 max-w-2xl mx-auto">Join thousands of partners that trust Princess for premium fleet assets and precision logistics services.</p>
-              <div className="flex flex-col sm:flex-row justify-center gap-4">
-                <Link to="/quote" className="bg-white text-primary font-black px-10 py-4 rounded-xl text-lg hover:bg-secondary hover:text-white transition-all shadow-lg">
-                  Request Quote
-                </Link>
-                <a href="tel:+63333331234" className="bg-secondary text-white font-black px-10 py-4 rounded-xl text-lg hover:bg-white hover:text-secondary transition-all shadow-lg">
-                  Speak to an Expert
-                </a>
-              </div>
-            </div>
           </div>
         </div>
       </section>

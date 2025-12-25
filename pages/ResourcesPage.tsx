@@ -1,11 +1,12 @@
 
 import React from 'react';
+import { IMAGES } from '../constants';
 
 const ResourcesPage: React.FC = () => {
   const articles = [
-    { title: 'The Future of Cold Chain in Panay', category: 'Insights', date: 'Oct 12, 2023', img: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=600' },
-    { title: 'Optimizing Fleet Fuel Efficiency', category: 'Guides', date: 'Sept 28, 2023', img: 'https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&q=80&w=600' },
-    { title: 'Choosing the Right Heavy Equipment', category: 'Sales', date: 'Aug 15, 2023', img: 'https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&q=80&w=600' },
+    { title: 'The Future of Cold Chain in Panay', category: 'Insights', date: 'Oct 12, 2023', img: IMAGES.RESOURCES_ARTICLES[0] },
+    { title: 'Optimizing Fleet Fuel Efficiency', category: 'Guides', date: 'Sept 28, 2023', img: IMAGES.RESOURCES_ARTICLES[1] },
+    { title: 'Choosing the Right Heavy Equipment', category: 'Sales', date: 'Aug 15, 2023', img: IMAGES.RESOURCES_ARTICLES[2] },
   ];
 
   return (
@@ -34,14 +35,6 @@ const ResourcesPage: React.FC = () => {
             </div>
           ))}
         </div>
-      </section>
-
-      <section className="py-24 bg-secondary text-white text-center px-4 rounded-t-[50px]">
-        <h2 className="text-4xl font-black mb-8">Download Our Fleet Catalog</h2>
-        <p className="text-blue-100 mb-12 max-w-2xl mx-auto">Get detailed technical specifications for our entire range of trucks and heavy equipment.</p>
-        <button className="bg-primary hover:bg-red-700 text-white font-black px-12 py-5 rounded-2xl text-lg transition-all shadow-xl">
-          <i className="fa-solid fa-file-pdf mr-3"></i> Download 2024 Catalog
-        </button>
       </section>
     </div>
   );
